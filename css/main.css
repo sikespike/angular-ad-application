@@ -1,0 +1,356 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: #f1f1f1;
+  font-size: 16px;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+#choco-header {
+  position: relative;
+  text-align: left;
+  height: 350px;
+  display: block;
+  background: #e62117;
+}
+#choco-header .header-text {
+  font-size: 50px;
+  position: absolute;
+  width: 350px;
+  bottom: 13px;
+  left: 20px;
+  color: white;
+}
+#choco-header .options-action {
+  width: 40px;
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  display: inline-block;
+  cursor: pointer;
+}
+#choco-header .options-action .bar1, #choco-header .options-action .bar2, #choco-header .options-action .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+#choco-header .options-action.change .bar1 {
+  -webkit-transform: rotate(-46deg) translate(-9px, 6px);
+  transform: rotate(-46deg) translate(-9px, 6px);
+}
+#choco-header .options-action.change .bar2 {
+  opacity: 0;
+}
+#choco-header .options-action.change .bar3 {
+  -webkit-transform: rotate(46deg) translate(-9px, -7px);
+  transform: rotate(46deg) translate(-9px, -7px);
+}
+#choco-header .cart-info-container {
+  font-family: 'Source Sans Pro', sans-serif;
+  position: absolute;
+  color: #fff;
+  font-size: small;
+  bottom: 8px;
+  right: 10px;
+  border: 2px solid white;
+  border-radius: 38px;
+  width: 28px;
+  box-sizing: border-box;
+  height: 28px;
+  text-align: center;
+  cursor: default;
+}
+#choco-header .cart-info-container .text {
+  position: absolute;
+  font-weight: bolder;
+  font-size: 1.3em;
+  top: 4px;
+  left: 10px;
+}
+#choco-header .cart-info-container .cart-total-items {
+  position: absolute;
+  top: -4px;
+  left: -38px;
+  font-size: 30px;
+}
+
+#choco-app .main-container {
+  display: block;
+}
+#choco-app .main-container .main-body {
+  padding: 0 0 20px 0;
+  box-sizing: border-box;
+}
+#choco-app .main-container .main-body .base-panel {
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#choco-app .main-container .main-body .base-panel .panel-header {
+  color: #2f2f2f;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0 0 15px 0;
+  display: block;
+}
+#choco-app .main-container .main-body .base-panel-wrapper {
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 350px);
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 7999;
+}
+#choco-app .main-container .main-body .left-menu {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  height: calc(100% - 350px);
+  position: absolute;
+  left: 0;
+  width: 0;
+  display: inline-block;
+  margin-top: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 8000;
+}
+#choco-app .main-container .main-body .left-menu.open {
+  width: 150px;
+  padding: 10px;
+}
+#choco-app .main-container .main-body .left-menu .inner-menu-panel .menu-text {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  cursor: pointer;
+}
+#choco-app .main-container .main-body .left-menu .inner-menu-panel .cart-colour {
+  color: #7d7d7d;
+}
+#choco-app .main-container .main-body .option-list-container {
+  position: absolute;
+  width: 80%;
+  display: inline-block;
+  left: 10%;
+  min-width: 805px;
+  margin-bottom: 10px;
+}
+#choco-app .main-container .main-body .option-list-container .view-style-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 52px;
+  height: 17px;
+}
+#choco-app .main-container .main-body .option-list-container .view-style-container .style-container {
+  position: relative;
+}
+#choco-app .main-container .main-body .option-list-container .view-style-container .style-container .tile-list-view, #choco-app .main-container .main-body .option-list-container .view-style-container .style-container .list-list-view {
+  display: inline-block;
+}
+#choco-app .main-container .main-body .option-list-container .view-style-container .style-container .tile-list-view {
+  position: absolute;
+  width: 17px;
+  left: 0;
+}
+#choco-app .main-container .main-body .option-list-container .view-style-container .style-container .list-list-view {
+  position: absolute;
+  width: 31px;
+  top: -7px;
+  right: 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0 0 9px 0;
+  margin: 12px 0 0 0;
+  position: relative;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item:first-child {
+  margin-top: 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container {
+  display: inline-block;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .image-tile {
+  width: 250px;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container {
+  display: inline-block;
+  width: calc(100% - 280px);
+  position: absolute;
+  right: 10px;
+  height: 100%;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container > div {
+  display: inline-block;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .type-name {
+  display: block;
+  font-weight: bold;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .type-description {
+  display: block;
+  margin: 5px 0 0 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .type-price {
+  display: block;
+  position: absolute;
+  bottom: 12px;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller {
+  position: absolute;
+  width: 110px;
+  top: calc(100% - 60px);
+  right: 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller span {
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  font-size: 36px;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller .quantity-container {
+  text-align: right;
+  position: absolute;
+  left: -105px;
+  width: 100px;
+  top: 7px;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller .quantity-container .quantity {
+  font-size: 32px;
+  position: relative;
+  width: 100%;
+  height: initial;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller .subtract-item {
+  left: 0;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .quantity-controller .add-item {
+  right: 0;
+}
+
+#cart-layover .cart-overlay-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+#cart-layover .cart-overlay-wrapper.show {
+  display: block;
+}
+#cart-layover .cart-overlay-wrapper .cart-overlay {
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  top: calc(50% - 300px);
+  left: calc(50% - 300px);
+  background: #fff;
+  border: 0px solid transparent;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 20px;
+}
+#cart-layover .cart-overlay-wrapper .cart-overlay .close-button {
+  position: absolute;
+  top: 5px;
+  right: 9px;
+  cursor: pointer;
+}
+#cart-layover .cart-overlay-wrapper .cart-overlay .cart-header {
+  position: relative;
+  top: -5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+#cart-layover .cart-overlay-wrapper .cart-overlay .cart-list {
+  margin-top: 10px;
+}
+#cart-layover .cart-overlay-wrapper .cart-overlay .clear-cart .clear-cart-action {
+  display: block;
+  position: relative;
+  top: 5px;
+}

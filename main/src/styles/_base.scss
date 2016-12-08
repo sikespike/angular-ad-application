@@ -1,0 +1,30 @@
+//just easier to type
+@mixin railway-font {
+    font-family: 'Raleway', sans-serif;
+}
+
+@mixin source-font {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@mixin pt-sans-font {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    @include railway-font;
+    background: #f1f1f1;
+    font-size: 16px;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+}

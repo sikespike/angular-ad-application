@@ -1,0 +1,82 @@
+<div id="#list-container" class="base-panel-wrapper">
+    <div class="base-panel option-list-container" ng-class="{open: menuOpen}">
+        <span class="panel-header">available flavours</span>
+        <div class="view-style-container">
+            <div class="style-container">
+            <span class="tile-list-view">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                <g>
+                    <path d="M0,9h7v7H0V9z" fill="#cecece"/>
+                    <path d="M0,0h7v7H0V0z" fill="#cecece"/>
+                    <path d="M9,9h7v7H9V9z" fill="#cecece"/>
+                    <path d="M9,0h7v7H9V0z" fill="#cecece"/>
+                </g>
+            </svg>
+            </span>
+            <span class="list-list-view">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve">
+                    <g>
+                        <path d="M3,3H0v3h3V3z M2,5H1V4h1V5z" fill="#cecece"/>
+                        <path d="M4,3h9v1H4V3z" fill="#cecece"/>
+                        <path d="M0,10h3V7H0V10z M1,8h1v1H1V8z" fill="#cecece"/>
+                        <path d="M4,9h9v1H4V9z" fill="#cecece"/>
+                        <path d="M4,5h9v1H4V5z" fill="#cecece"/>
+                        <path d="M4,7h9v1H4V7z" fill="#cecece"/>
+                    </g>
+                </svg>
+            </span>
+            </div>
+        </div>
+        <ul class="option-list">
+            <li class="option-list-item" ng-repeat="item in data track by item.type">
+                <div class="image-container">
+                    <img class="image-tile" src="{{item.img}}"/>
+                </div>
+                <div class="item-info-container">
+                    <span class="type-name">{{item.title}}</span>
+                    <span class="type-description">{{item.description}}</span>
+                    <span class="type-price">$ {{item.price.toFixed(2)}}</span>
+                    <div class="quantity-controller">
+                        <div class="quantity-container">
+                            <span class="quantity">{{item.quantity}}</span>
+                        </div>
+
+                    <span class="subtract-item" ng-click="subFromType(item.type)">
+                        <svg ng-if="item.quantity == 0" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs></defs>
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="minus" stroke="#979797">
+                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" opacity="0.354846014" cx="24" cy="24" r="23"></circle>
+                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square" opacity="0.348958333"></path>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <svg ng-if="item.quantity > 0" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="minus-color" stroke="#979797">
+                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" cx="24" cy="24" r="23"></circle>
+                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="add-item" ng-click="addToType(item.type)">
+                        <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <defs></defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="plus-color" stroke="#979797">
+                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" cx="24" cy="24" r="23"></circle>
+                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                                    <path d="M24,8 L24,40" id="Line" stroke-width="3" stroke-linecap="square"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
