@@ -2,7 +2,7 @@ angular = require("angular");
 
 var UiEvents = require("../model/UiEvents");
 
-angular.module("angular-choco")
+angular.module("app")
     .controller('OptionListController',
         function($scope) {
             $scope.campaignItemClick = function(item) {

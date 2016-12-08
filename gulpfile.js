@@ -140,7 +140,7 @@ gulp.task("watch", function() {
     gulp.watch(["./main/src/**/*.html"], ["build-template-cache", "build-js"]);
 });
 
-gulp.task('start', ["kill-server", "build","copyChartJs","watch", "server-start"]);
+gulp.task('start', ["kill-server", "build","watch", "server-start"]);
 
 /*gulp.task('test', ["build-template-cache",'build-js'], function() {
     new KarmaServer({
