@@ -47,37 +47,6 @@
             }
         }
     }
-
-    .cart-info-container {
-        @include source-font;
-        position: absolute;
-        color: #fff;
-        font-size: small;
-        bottom: 8px;
-        right: 10px;
-        border: 2px solid white;
-        border-radius: 38px;
-        width: 28px;
-        box-sizing: border-box;
-        height: 28px;
-        text-align: center;
-        cursor: default;
-
-        .text {
-            position: absolute;
-            font-weight: bolder;
-            font-size: 1.3em;
-            top: 4px;
-            left: 10px;
-        }
-
-        .cart-total-items {
-            position: absolute;
-            top: -4px;
-            left: -38px;
-            font-size: 30px;
-        }
-    }
 }
 
 #choco-app {
@@ -187,7 +156,6 @@
                 }
 
                 .option-list {
-
                     .option-list-item {
                         border-bottom: 1px solid #dbdbdb;
                         padding: 0 0 9px 0;
@@ -206,9 +174,38 @@
 
                         .image-container {
                             display: inline-block;
-                            
-                            .image-tile {
-                                width: 250px;
+
+                            $width: 250px;
+                            $height: 120px;
+
+                            .colour-container {
+                                width: $width;
+                                height: $height;
+                                display: block;
+
+                                &.red {
+                                    background: #ff0000;
+                                }
+
+                                &.green {
+                                    background: #00ff00;
+                                }
+
+                                &.blue {
+                                    background: #0000ff;
+                                }
+
+                                &.yellow {
+                                    background: #FFFF00
+                                }
+
+                                &.purple {
+                                    background: #ff00ff;
+                                }
+
+                                &.orange {
+                                    background: #FFA500;
+                                }
                             }
                         }
 
@@ -225,8 +222,11 @@
                             
                             .type-name {
                                 display: block;
-
                                 font-weight: bold;
+                                position: absolute;
+                                top: calc(50% - 8px);
+                                text-align: center;
+                                width: 100%;
                             }
 
                             .type-description {
@@ -290,8 +290,8 @@
     }
 }
 
-#cart-layover {
-    .cart-overlay-wrapper {
+#dashboard-layover {
+    .dashboard-overlay-wrapper {
         position: absolute;
         top: 0;
         left: 0;
@@ -305,7 +305,7 @@
             display:block
         }
         
-        .cart-overlay {
+        .dashboard-overlay {
             position: absolute;
             height: 600px;
             width: 600px;
@@ -325,30 +325,18 @@
                 cursor: pointer;
             }
 
-            .cart-header {
+            .dashboard-header {
                 position: relative;
                 top: -5px;
                 font-weight: bold;
                 font-size: 20px;
             }
             
-            .cart-list {
+            .campaign-list {
                 margin-top: 10px;
                 
                 .cart-list-item {
 
-                }
-            }
-
-            .clear-cart {
-                .total-container {
-                    
-                }
-
-                .clear-cart-action {
-                    display: block;
-                    position: relative;
-                    top: 5px;
                 }
             }
         }

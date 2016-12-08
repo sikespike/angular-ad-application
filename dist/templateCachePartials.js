@@ -6,7 +6,17 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partial/directives/dashboard-overlay.html',
-    '<div>hello world</div>');
+    '<div class="dashboard-overlay-wrapper" ng-class="{show: isCartShowing}">\n' +
+    '    <div class="dashboard-overlay">\n' +
+    '        <span class="close-button" ng-click="closeCart()">\n' +
+    '            <i class="fa fa-window-close" aria-hidden="true"></i>\n' +
+    '        </span>\n' +
+    '        <span class="dashboard-header">{{data.name}} Campaign</span>\n' +
+    '        <div class="campaign-list" >\n' +
+    '\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</div>');
 }]);
 })();
 
@@ -20,7 +30,7 @@ module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partial/directives/option-list-container.html',
     '<div id="#list-container" class="base-panel-wrapper">\n' +
     '    <div class="base-panel option-list-container" ng-class="{open: menuOpen}">\n' +
-    '        <span class="panel-header">available flavours</span>\n' +
+    '        <span class="panel-header">List of ad campaigns</span>\n' +
     '        <div class="view-style-container">\n' +
     '            <div class="style-container">\n' +
     '            <span class="tile-list-view">\n' +
@@ -48,53 +58,12 @@ module.run(['$templateCache', function($templateCache) {
     '            </div>\n' +
     '        </div>\n' +
     '        <ul class="option-list">\n' +
-    '            <li class="option-list-item" ng-repeat="item in data track by item.type">\n' +
+    '            <li class="option-list-item" ng-repeat="item in list track by item.id" ng-click="campaignItemClick(item)">\n' +
     '                <div class="image-container">\n' +
-    '                    <img class="image-tile" src="{{item.img}}"/>\n' +
+    '                    <div class="colour-container {{item.name.toLowerCase()}}"></div>\n' +
     '                </div>\n' +
     '                <div class="item-info-container">\n' +
-    '                    <span class="type-name">{{item.title}}</span>\n' +
-    '                    <span class="type-description">{{item.description}}</span>\n' +
-    '                    <span class="type-price">$ {{item.price.toFixed(2)}}</span>\n' +
-    '                    <div class="quantity-controller">\n' +
-    '                        <div class="quantity-container">\n' +
-    '                            <span class="quantity">{{item.quantity}}</span>\n' +
-    '                        </div>\n' +
-    '\n' +
-    '                    <span class="subtract-item" ng-click="subFromType(item.type)">\n' +
-    '                        <svg ng-if="item.quantity == 0" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
-    '                            <defs></defs>\n' +
-    '                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n' +
-    '                                <g id="minus" stroke="#979797">\n' +
-    '                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" opacity="0.354846014" cx="24" cy="24" r="23"></circle>\n' +
-    '                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square" opacity="0.348958333"></path>\n' +
-    '                                </g>\n' +
-    '                            </g>\n' +
-    '                        </svg>\n' +
-    '\n' +
-    '                        <svg ng-if="item.quantity > 0" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
-    '                            <defs></defs>\n' +
-    '                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n' +
-    '                                <g id="minus-color" stroke="#979797">\n' +
-    '                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" cx="24" cy="24" r="23"></circle>\n' +
-    '                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square"></path>\n' +
-    '                                </g>\n' +
-    '                            </g>\n' +
-    '                        </svg>\n' +
-    '                    </span>\n' +
-    '                    <span class="add-item" ng-click="addToType(item.type)">\n' +
-    '                        <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n' +
-    '                            <defs></defs>\n' +
-    '                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n' +
-    '                                <g id="plus-color" stroke="#979797">\n' +
-    '                                    <circle id="Oval" stroke-width="2" fill="#D8D8D8" cx="24" cy="24" r="23"></circle>\n' +
-    '                                    <path d="M8.5,24.5 L40.5,24.5" id="Line" stroke-width="3" stroke-linecap="square"></path>\n' +
-    '                                    <path d="M24,8 L24,40" id="Line" stroke-width="3" stroke-linecap="square"></path>\n' +
-    '                                </g>\n' +
-    '                            </g>\n' +
-    '                        </svg>\n' +
-    '                    </span>\n' +
-    '                    </div>\n' +
+    '                    <span class="type-name">{{item.name}}</span>\n' +
     '                </div>\n' +
     '            </li>\n' +
     '        </ul>\n' +
@@ -118,12 +87,12 @@ module.run(['$templateCache', function($templateCache) {
     '    <section id="choco-app">\n' +
     '        <div class="main-container">\n' +
     '            <div class="main-body">\n' +
-    '                <option-list-container data="campaign"/>\n' +
+    '                <option-list-container list="campaigns.data"/>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </section>\n' +
     '    <section id="dashboard-layover">\n' +
-    '        <dashboard-overlay data="campaign" />\n' +
+    '        <dashboard-overlay data="campaign" ng-class="{show: isDashShowing}" />\n' +
     '    </section>\n' +
     '</div>\n' +
     '');

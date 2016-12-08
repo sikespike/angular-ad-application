@@ -9,7 +9,7 @@ angular.module('angular-choco')
             restrict: "E",
             transclude: true,
             scope: {
-                data: "=data"
+                list: "=list"
             },
             templateUrl: "/partial/directives/option-list-container.html",
             controller:"OptionListController"

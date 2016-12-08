@@ -114,34 +114,6 @@ body {
   -webkit-transform: rotate(46deg) translate(-9px, -7px);
   transform: rotate(46deg) translate(-9px, -7px);
 }
-#choco-header .cart-info-container {
-  font-family: 'Source Sans Pro', sans-serif;
-  position: absolute;
-  color: #fff;
-  font-size: small;
-  bottom: 8px;
-  right: 10px;
-  border: 2px solid white;
-  border-radius: 38px;
-  width: 28px;
-  box-sizing: border-box;
-  height: 28px;
-  text-align: center;
-  cursor: default;
-}
-#choco-header .cart-info-container .text {
-  position: absolute;
-  font-weight: bolder;
-  font-size: 1.3em;
-  top: 4px;
-  left: 10px;
-}
-#choco-header .cart-info-container .cart-total-items {
-  position: absolute;
-  top: -4px;
-  left: -38px;
-  font-size: 30px;
-}
 
 #choco-app .main-container {
   display: block;
@@ -249,8 +221,28 @@ body {
 #choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container {
   display: inline-block;
 }
-#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .image-tile {
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container {
   width: 250px;
+  height: 120px;
+  display: block;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.red {
+  background: #ff0000;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.green {
+  background: #00ff00;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.blue {
+  background: #0000ff;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.yellow {
+  background: #FFFF00;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.purple {
+  background: #ff00ff;
+}
+#choco-app .main-container .main-body .option-list-container .option-list .option-list-item .image-container .colour-container.orange {
+  background: #FFA500;
 }
 #choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container {
   display: inline-block;
@@ -265,6 +257,10 @@ body {
 #choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .type-name {
   display: block;
   font-weight: bold;
+  position: absolute;
+  top: calc(50% - 8px);
+  text-align: center;
+  width: 100%;
 }
 #choco-app .main-container .main-body .option-list-container .option-list .option-list-item .item-info-container .type-description {
   display: block;
@@ -309,7 +305,7 @@ body {
   right: 0;
 }
 
-#cart-layover .cart-overlay-wrapper {
+#dashboard-layover .dashboard-overlay-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -319,10 +315,10 @@ body {
   background: rgba(0, 0, 0, 0.8);
   display: none;
 }
-#cart-layover .cart-overlay-wrapper.show {
+#dashboard-layover .dashboard-overlay-wrapper.show {
   display: block;
 }
-#cart-layover .cart-overlay-wrapper .cart-overlay {
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay {
   position: absolute;
   height: 600px;
   width: 600px;
@@ -333,23 +329,18 @@ body {
   border-radius: 10px;
   padding: 20px;
 }
-#cart-layover .cart-overlay-wrapper .cart-overlay .close-button {
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .close-button {
   position: absolute;
   top: 5px;
   right: 9px;
   cursor: pointer;
 }
-#cart-layover .cart-overlay-wrapper .cart-overlay .cart-header {
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .dashboard-header {
   position: relative;
   top: -5px;
   font-weight: bold;
   font-size: 20px;
 }
-#cart-layover .cart-overlay-wrapper .cart-overlay .cart-list {
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .campaign-list {
   margin-top: 10px;
-}
-#cart-layover .cart-overlay-wrapper .cart-overlay .clear-cart .clear-cart-action {
-  display: block;
-  position: relative;
-  top: 5px;
 }

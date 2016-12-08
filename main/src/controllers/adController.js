@@ -1,53 +1,41 @@
 angular = require('angular');
 require("../services/campaignService");
 
-var UiEvent = require("../model/UiEvent");
+var UiEvents = require("../model/UiEvents");
 var CampaignList = require("../model/CampaignList");
 
 function buildCampaignList(dataList) {
-    return new CampaignList(dataList);
+    return new CampaignList(dataList.campaigns);
 }
 
 angular.module('angular-choco')
-    .controller('AdController', function ChocoController($scope,$window, camService) {
+    .controller('AdController', function ChocoController($scope,$window, campaignService) {
         'use strict';
-        var campaign = null
+        var campaigns = null
 
-        camService.getCampaignList().then(function(data){
+        $scope.campaign = null;
 
-            campaign = buildCampaignList(JSON.parse(data));
+        campaignService.getCampaignList().then(function(data){
+            campaigns = buildCampaignList(JSON.parse(data));
 
-            $scope.campaign = campaign;
+            $scope.campaigns = campaigns;
         }, function(e){
             throw new Exception(e);
         });
 
-        $scope.menuOpen = false;
-
-        $scope.menuClick = function() {
-            $scope.menuOpen = !$scope.menuOpen;
-        };
-
-        $scope.$on(UiEvent.OPEN_DASH, function($targetScope, $currentScope) {
-
-        });
-
-        $scope.$on(UiEvent.OPEN_MENU, function($targetScope, $currentScope) {
-
-        });
-
         $scope.isDashShowing = false;
 
-        var showCart = function() {
-            $scope.isDashShowing = true;
+        var openDashboard = function() {
+            $scope.isDashShowing = !$scope.isDashShowing;
         };
 
-        $scope.showCart = showCart;
+        $scope.$on(UiEvents.DASH_OPEN, function($targetScope, $currentScope, value) {
+            openDashboard();
+            $scope.campaign = value;
+        });
 
-        var closeCart = function() {
-            $scope.isDashShowing = false;
-        };
-
-        $scope.closeCart = closeCart;
+        $scope.$on(UiEvents.DASH_CLOSE, function() {
+            openDashboard();
+        });
     }
 );

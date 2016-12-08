@@ -1,1 +1,11 @@
-<div>hello world</div>
+<div class="dashboard-overlay-wrapper" ng-class="{show: isCartShowing}">
+    <div class="dashboard-overlay">
+        <span class="close-button" ng-click="closeCart()">
+            <i class="fa fa-window-close" aria-hidden="true"></i>
+        </span>
+        <span class="dashboard-header">{{data.name}} Campaign</span>
+        <div class="campaign-list" >
+
+        </div>
+    </div>
+</div>

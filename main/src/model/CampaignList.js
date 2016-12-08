@@ -1,12 +1,7 @@
 _ = require("underscore");
 
 function CampaignList(data) {
-    this.data = buildCampaignList(data);
-}
-
-
-function buildCampaignList(data) {
-    return data;
+    this.data = data;
 }
 
 CampaignList.prototype.getAsList = function() {

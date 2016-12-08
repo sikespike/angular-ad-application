@@ -95,7 +95,7 @@ gulp.task('build-js', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles","copyImages", 'build-js'], function() {
+gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles", "build-js"], function() {
     return gulp.src('index.html')
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
@@ -106,6 +106,7 @@ gulp.task("copyStaticFiles", function(){
     return gulp.src("./index.{js, html}")
         .pipe(gulp.dest("./dist"));
 });
+
 
 gulp.task("clean-images", function(){
     return del(["./dist/images"]);
