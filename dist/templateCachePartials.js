@@ -70,7 +70,7 @@ module.run(['$templateCache', function($templateCache) {
     '            </div>\n' +
     '        </div>\n' +
     '        <ul class="option-list">\n' +
-    '            <li class="option-list-item" ng-repeat="item in list track by item.id" ng-click="campaignItemClick(item)">\n' +
+    '            <li class="option-list-item" ng-repeat="item in list track by item.name" ng-click="campaignItemClick(item)">\n' +
     '                <div class="image-container">\n' +
     '                    <div class="colour-container {{item.name.toLowerCase()}}"></div>\n' +
     '                </div>\n' +
@@ -99,7 +99,7 @@ module.run(['$templateCache', function($templateCache) {
     '    <section id="choco-app">\n' +
     '        <div class="main-container">\n' +
     '            <div class="main-body">\n' +
-    '                <option-list-container list="campaigns.getAsList()"/>\n' +
+    '                <option-list-container list="campaigns.data"/>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </section>\n' +

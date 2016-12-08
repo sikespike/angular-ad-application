@@ -28,7 +28,7 @@
             </div>
         </div>
         <ul class="option-list">
-            <li class="option-list-item" ng-repeat="item in list track by item.id" ng-click="campaignItemClick(item)">
+            <li class="option-list-item" ng-repeat="item in list track by item.name" ng-click="campaignItemClick(item)">
                 <div class="image-container">
                     <div class="colour-container {{item.name.toLowerCase()}}"></div>
                 </div>

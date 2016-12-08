@@ -15,7 +15,7 @@ function updateTotals(data) {
     this.totalClicks += data.clicks;
     //this.totalCTR += data.ctr;
     this.totalUsers = data.users;
-    this.iteration++;
+    //this.iteration++;
 }
 
 CampaignModel.prototype.addData = function(data) {
