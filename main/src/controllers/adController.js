@@ -2,7 +2,9 @@ angular = require('angular');
 require("../services/campaignService");
 
 var UiEvents = require("../model/UiEvents");
-var CampaignList = require("../model/CampaignList");
+var CampaignList = require("../model/CampaignListModel");
+var Campaign = require("../model/CampaignModel");
+var _ = require("underscore");
 
 function buildCampaignList(dataList) {
     return new CampaignList(dataList.campaigns);
@@ -13,10 +15,11 @@ angular.module('angular-choco')
         'use strict';
         var campaigns = null
 
-        $scope.campaign = null;
+        var campaign = null;
+        $scope.campaign = campaign;
 
         campaignService.getCampaignList().then(function(data){
-            campaigns = buildCampaignList(JSON.parse(data));
+            campaigns = buildCampaignList(data);
 
             $scope.campaigns = campaigns;
         }, function(e){
@@ -25,17 +28,26 @@ angular.module('angular-choco')
 
         $scope.isDashShowing = false;
 
-        var openDashboard = function() {
+        $scope.dashTimer = 0;
+
+        var toggleDashboard = function() {
             $scope.isDashShowing = !$scope.isDashShowing;
         };
 
-        $scope.$on(UiEvents.DASH_OPEN, function($targetScope, $currentScope, value) {
-            openDashboard();
-            $scope.campaign = value;
+        $scope.toggleDashboard = toggleDashboard;
+
+        $scope.$on(UiEvents.DASH_OPEN, function(event, target) {
+            campaignService.getCampaign(target.id).then(function(data) {
+                campaign = new Campaign();
+                campaign.addData(data);
+                $scope.campaign = campaign;
+                toggleDashboard();
+                $scope.startTimer(target.id);
+            });
         });
 
-        $scope.$on(UiEvents.DASH_CLOSE, function() {
-            openDashboard();
+        $scope.$on(UiEvents.DASH_CLOSE, function($targetScope, $currentScope, value) {
+            toggleDashboard();
         });
     }
 );

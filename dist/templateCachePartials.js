@@ -6,12 +6,12 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partial/directives/dashboard-overlay.html',
-    '<div class="dashboard-overlay-wrapper" ng-class="{show: isCartShowing}">\n' +
+    '<div class="dashboard-overlay-wrapper" ng-class="{show: isDashShowing}">\n' +
     '    <div class="dashboard-overlay">\n' +
-    '        <span class="close-button" ng-click="closeCart()">\n' +
+    '        <span class="close-button" ng-click="toggleDashboard()">\n' +
     '            <i class="fa fa-window-close" aria-hidden="true"></i>\n' +
     '        </span>\n' +
-    '        <span class="dashboard-header">{{data.name}} Campaign</span>\n' +
+    '        <span class="dashboard-header">{{campaign.name}} Campaign</span>\n' +
     '        <div class="campaign-list" >\n' +
     '\n' +
     '        </div>\n' +
@@ -92,7 +92,7 @@ module.run(['$templateCache', function($templateCache) {
     '        </div>\n' +
     '    </section>\n' +
     '    <section id="dashboard-layover">\n' +
-    '        <dashboard-overlay data="campaign" ng-class="{show: isDashShowing}" />\n' +
+    '        <dashboard-overlay data="campaign" />\n' +
     '    </section>\n' +
     '</div>\n' +
     '');
