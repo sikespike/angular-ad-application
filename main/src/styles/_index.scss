@@ -334,9 +334,24 @@
             
             .campaign-list {
                 margin-top: 10px;
-                
-                .cart-list-item {
 
+                .campaign-list-header {
+                    .list-title {
+                        font-weight:bold;
+                        font-size: 16px;
+                    }
+
+                    .headers {
+                        span {
+                            font-size:14px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .campaign-list-item {
+                    span {
+                        font-size: 14px;
+                    }
                 }
             }
         }

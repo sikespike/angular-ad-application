@@ -12,10 +12,11 @@ angular.module("angular-choco")
 
             $scope.dashTimer = null;
 
-            $scope.startTimer = function (id) {
+            $scope.startTimer = function (id,it) {
                 $scope.dashTimer = $interval(function () {
-                    campaignService.getCampaign(id).then(function(data){
+                    campaignService.getCampaign(id, it).then(function(data){
                         $scope.campaign.addData(data);
+                        it++;
                     });
                 }, 5000);
             };
@@ -24,6 +25,7 @@ angular.module("angular-choco")
             $scope.stopTimer = function () {
                 if (angular.isDefined($scope.dashTimer)) {
                     $interval.cancel($scope.dashTimer);
+                    $scope.dashTimer = null;
                 }
             };
 

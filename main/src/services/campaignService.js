@@ -15,10 +15,10 @@ angular.module('angular-choco')
                     console.log(res);
                 });
             },
-            getCampaign: function(id) {
+            getCampaign: function(id, it) {
                 return $http({
                     method:"GET",
-                    url:"/api/campaigns/"+id+"?number=1"
+                    url:"/api/campaigns/"+id+"?number="+it
                 }).then(function success(res) {
                     return JSON.parse(JSON.stringify(res.data));
                 }, function error(res) {

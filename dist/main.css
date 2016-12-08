@@ -344,3 +344,14 @@ body {
 #dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .campaign-list {
   margin-top: 10px;
 }
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .campaign-list .campaign-list-header .list-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .campaign-list .campaign-list-header .headers span {
+  font-size: 14px;
+  font-weight: bold;
+}
+#dashboard-layover .dashboard-overlay-wrapper .dashboard-overlay .campaign-list .campaign-list-item span {
+  font-size: 14px;
+}

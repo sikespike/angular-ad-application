@@ -1,27 +1,27 @@
-/**
- 1. Total Impressions
- 2. Total Clicks
- 3. Total CTR
- 4. Total Users
- 5. A Simple Moving Average of last 10 data pulls impressions (details at end of this
- document, if you don’t know what one is)
- 6. Current Number (iteration/pull #)
- 7. Most Recent Impressions
- 8. Most Recent Clicks
- 9. Most Recent CTR
- 10. Most Recent Users
- */
-function CampaignModel(){
+function CampaignModel(data){
+    this.id = data.id;
+    this.name = data.name;
     this.totalImpressions = 0;
     this.totalClicks = 0;
     this.totalCTR = 0;
-    this.currentIteration = 0;
+    this.totalUsers = 0;
+    this.iteration = 0;
     this.mostRecentRecord = null;
     this.data = [];
 }
 
+function updateTotals(data) {
+    this.totalImpressions += data.impressions;
+    this.totalClicks += data.clicks;
+    //this.totalCTR += data.ctr;
+    this.totalUsers = data.users;
+    this.iteration++;
+}
+
 CampaignModel.prototype.addData = function(data) {
     this.data.push(data);
+    this.mostRecentRecord = data;
+    updateTotals.call(data, this);
 };
 
 module.exports = CampaignModel;

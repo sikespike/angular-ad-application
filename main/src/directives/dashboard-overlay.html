@@ -5,7 +5,19 @@
         </span>
         <span class="dashboard-header">{{campaign.name}} Campaign</span>
         <div class="campaign-list" >
-
+            <div class="campaign-list-header">
+                <span class="list-title">Data Requests</span>
+                <div class="headers">
+                    <span class="imp-text">Impressions</span>
+                    <span class="clicks-text">Clicks</span>
+                    <span class="users-text">Users</span>
+                </div>
+            </div>
+            <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">
+                <span class="imp-text">{{item.impressions}}</span>
+                <span class="clicks-text">{{item.clicks}}</span>
+                <span class="users-text">{{item.users}}</span>
+            </div>
         </div>
     </div>
 </div>

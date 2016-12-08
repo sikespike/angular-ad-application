@@ -13,7 +13,19 @@ module.run(['$templateCache', function($templateCache) {
     '        </span>\n' +
     '        <span class="dashboard-header">{{campaign.name}} Campaign</span>\n' +
     '        <div class="campaign-list" >\n' +
-    '\n' +
+    '            <div class="campaign-list-header">\n' +
+    '                <span class="list-title">Data Requests</span>\n' +
+    '                <div class="headers">\n' +
+    '                    <span class="imp-text">Impressions</span>\n' +
+    '                    <span class="clicks-text">Clicks</span>\n' +
+    '                    <span class="users-text">Users</span>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
+    '            <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">\n' +
+    '                <span class="imp-text">{{item.impressions}}</span>\n' +
+    '                <span class="clicks-text">{{item.clicks}}</span>\n' +
+    '                <span class="users-text">{{item.users}}</span>\n' +
+    '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</div>');
@@ -87,7 +99,7 @@ module.run(['$templateCache', function($templateCache) {
     '    <section id="choco-app">\n' +
     '        <div class="main-container">\n' +
     '            <div class="main-body">\n' +
-    '                <option-list-container list="campaigns.data"/>\n' +
+    '                <option-list-container list="campaigns.getAsList()"/>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </section>\n' +

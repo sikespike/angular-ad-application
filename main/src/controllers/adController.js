@@ -10,6 +10,7 @@ function buildCampaignList(dataList) {
     return new CampaignList(dataList.campaigns);
 }
 
+
 angular.module('angular-choco')
     .controller('AdController', function ChocoController($scope,$window, campaignService) {
         'use strict';
@@ -36,18 +37,25 @@ angular.module('angular-choco')
 
         $scope.toggleDashboard = toggleDashboard;
 
+        var getCampaign = function(id) {
+            return campaigns.getType(id);
+        };
+
         $scope.$on(UiEvents.DASH_OPEN, function(event, target) {
-            campaignService.getCampaign(target.id).then(function(data) {
-                campaign = new Campaign();
+            var it = $scope.campaign ? $scope.campaign.iteration: 0;
+
+            campaignService.getCampaign(target.id, it).then(function(data) {
+                campaign = getCampaign(target.id);
                 campaign.addData(data);
                 $scope.campaign = campaign;
                 toggleDashboard();
-                $scope.startTimer(target.id);
+                $scope.startTimer(target.id, $scope.campaign.iteration);
             });
         });
 
         $scope.$on(UiEvents.DASH_CLOSE, function($targetScope, $currentScope, value) {
             toggleDashboard();
+            $scope.campaign = null;
         });
     }
 );
