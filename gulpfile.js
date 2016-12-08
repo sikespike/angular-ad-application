@@ -52,8 +52,7 @@ gulp.task('sass', function() {
 
         //.pipe(cachebust.resources())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('build-template-cache', function() {
@@ -67,8 +66,7 @@ gulp.task('build-template-cache', function() {
             prefix: "/partial/"
         }))
         .pipe(concat("templateCachePartials.js"))
-        .pipe(gulp.dest("./dist"))
-        .pipe(connect.reload());
+        .pipe(gulp.dest("./dist"));
 });
 
 gulp.task('jshint', function() {
@@ -94,22 +92,19 @@ gulp.task('build-js', function() {
         .pipe(uglify())
         .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/'))
-        .pipe(connect.reload());;
+        .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles","copyImages", 'build-js'], function() {
     return gulp.src('index.html')
         .pipe(cachebust.references())
-        .pipe(gulp.dest('dist'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('dist'));
 });
 
 //Copy static files from html folder to build folder
 gulp.task("copyStaticFiles", function(){
     return gulp.src("./index.{js, html}")
-        .pipe(gulp.dest("./dist"))
-        .pipe(connect.reload());;
+        .pipe(gulp.dest("./dist"));
 });
 
 gulp.task("clean-images", function(){
@@ -119,13 +114,11 @@ gulp.task("clean-images", function(){
 //Copy static files from html folder to build folder
 gulp.task("copyImages", ["clean-images"] ,function(){
     return gulp.src("./images/*.*")
-        .pipe(gulp.dest("./dist/"))
-        .pipe(connect.reload());;
+        .pipe(gulp.dest("./dist/"));
 });
 
 gulp.task('html', function () {
-    gulp.src('./dist/*.{html, js}')
-        .pipe(connect.reload());
+    gulp.src('./dist/*.{html, js}');
 });
 
 gulp.task("cleanJs", function () {
