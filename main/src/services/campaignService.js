@@ -1,6 +1,6 @@
 angular = require('angular');
 
-angular.module('app@')
+angular.module('app')
     .factory("campaignService", function ($http, $injector) {
         'use strict';
         return {
