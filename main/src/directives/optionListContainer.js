@@ -1,7 +1,7 @@
 angular = require('angular');
 require("../controllers/optionListController");
 
-angular.module('angular-choco')
+angular.module('app')
     .directive('optionListContainer', function() {
         'use strict';
 

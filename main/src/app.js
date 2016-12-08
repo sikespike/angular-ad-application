@@ -2,7 +2,7 @@ angular = require('angular');
 require('angular-route');
 require('../../dist/templateCachePartials');
 
-angular.module('angular-choco', ['ngRoute','adPartials'])
+angular.module('app', ['ngRoute','adPartials'])
 
 .config(function ($routeProvider,$httpProvider) {
         $routeProvider.when('/', {

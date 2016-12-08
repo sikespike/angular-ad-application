@@ -1,6 +1,6 @@
 angular = require('angular');
 
-angular.module('angular-choco')
+angular.module('app@')
     .factory("campaignService", function ($http, $injector) {
         'use strict';
         return {

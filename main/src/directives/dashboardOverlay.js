@@ -1,7 +1,7 @@
 angular = require('angular');
 require("../controllers/dashboardOverlayController");
 
-angular.module('angular-choco')
+angular.module('app')
     .directive('dashboardOverlay', function() {
         'use strict';
 

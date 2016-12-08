@@ -3,7 +3,7 @@ require("../services/campaignService");
 
 var UiEvents = require("../model/UiEvents");
 
-angular.module("angular-choco")
+angular.module("app")
     .controller('DashboardOverlayController',
         function($scope, $interval, campaignService) {
             $scope.closeDashboard = function() {
@@ -36,5 +36,7 @@ angular.module("angular-choco")
                     }
                 }
             });
+
+
         }
     );

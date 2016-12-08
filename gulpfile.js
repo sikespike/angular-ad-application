@@ -118,6 +118,12 @@ gulp.task("copyImages", ["clean-images"] ,function(){
         .pipe(gulp.dest("./dist/"));
 });
 
+//Copy static files from html folder to build folder
+gulp.task("copyChartJs", function(){
+    return gulp.src("./node_modules/chart.js/dist/Chart.min.js")
+        .pipe(gulp.dest("./dist/"));
+});
+
 gulp.task('html', function () {
     gulp.src('./dist/*.{html, js}');
 });
@@ -134,7 +140,7 @@ gulp.task("watch", function() {
     gulp.watch(["./main/src/**/*.html"], ["build-template-cache", "build-js"]);
 });
 
-gulp.task('start', ["kill-server", "build","watch", "server-start"]);
+gulp.task('start', ["kill-server", "build","copyChartJs","watch", "server-start"]);
 
 /*gulp.task('test', ["build-template-cache",'build-js'], function() {
     new KarmaServer({

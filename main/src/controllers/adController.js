@@ -11,7 +11,7 @@ function buildCampaignList(dataList) {
 }
 
 
-angular.module('angular-choco')
+angular.module('app')
     .controller('AdController', function ChocoController($scope,$window, campaignService) {
         'use strict';
         var campaigns = null

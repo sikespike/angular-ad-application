@@ -12,6 +12,9 @@ module.run(['$templateCache', function($templateCache) {
     '            <i class="fa fa-window-close" aria-hidden="true"></i>\n' +
     '        </span>\n' +
     '        <span class="dashboard-header">{{campaign.name}} Campaign</span>\n' +
+    '        <div class="chart-wrapper">\n' +
+    '            <canvas id="dashboardChart" width="400" height="400"></canvas>\n' +
+    '        </div>\n' +
     '        <div class="campaign-list" >\n' +
     '            <div class="campaign-list-header">\n' +
     '                <span class="list-title">Data Requests</span>\n' +
