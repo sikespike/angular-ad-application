@@ -342,7 +342,7 @@
                     display: inline-block;
                 }
 
-                .campaign-list-header {
+                .overall-data-container,.campaign-list-header {
                     .list-title {
                         font-weight:bold;
                         font-size: 16px;
@@ -352,12 +352,19 @@
                         span {
                             @extend .header-text;
                         }
+                        span.value {
+                            @extend .header-text;
+                            font-weight:normal;
+                        }
                     }
                 }
 
+                .campaign-list-header {
+                    margin: 10px 0 0 0;
+                }
+
                 .campaign-list-item-wrapper {
-                    height: 240px;
-                    max-height: 240px;
+                    height: 125px;
                     overflow-y: scroll;
 
                     .campaign-list-item {

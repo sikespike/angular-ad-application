@@ -53,7 +53,7 @@ angular.module('app')
             });
         });
 
-        $scope.$on(UiEvents.DASH_CLOSE, function($targetScope, $currentScope, value) {
+        $scope.$on(UiEvents.DASH_CLOSE, function(event, value) {
             toggleDashboard();
             $scope.campaign = null;
         });

@@ -15,20 +15,45 @@ module.run(['$templateCache', function($templateCache) {
     '        <div class="chart-wrapper">\n' +
     '            <canvas id="dashboardChart"></canvas>\n' +
     '        </div>\n' +
+    '\n' +
     '        <div class="campaign-list" >\n' +
+    '            <div class="overall-data-container">\n' +
+    '                <div class="headers">\n' +
+    '                    <span>Total Impressions</span>\n' +
+    '                    <span>Total Clicks</span>\n' +
+    '                    <span>Total CTR</span>\n' +
+    '                    <span class="value">{{campaign.totalImpressions}}</span>\n' +
+    '                    <span class="value">{{campaign.totalClicks}}</span>\n' +
+    '                    <span class="value">{{campaign.totalCTR}}</span>\n' +
+    '                    <span>Total Users</span>\n' +
+    '                    <span>SMA</span>\n' +
+    '                    <span>Iteration #</span>\n' +
+    '                    <span class="value">{{campaign.totalUsers}}</span>\n' +
+    '                    <span class="value">{{campaign.getSma()}}</span>\n' +
+    '                    <span class="value">{{campaign.iteration}}</span>\n' +
+    '                    <span>Most Recent Impressions</span>\n' +
+    '                    <span>Most Recent Clicks</span>\n' +
+    '                    <span>Most Recent CTR</span>\n' +
+    '                    <span class="value">{{campaign.mostRecentRecord.impressions}}</span>\n' +
+    '                    <span class="value">{{campaign.mostRecentRecord.clicks}}</span>\n' +
+    '                    <span class="value">{{campaign.mostRecentRecord.ctr}}</span>\n' +
+    '                    <span>Most Recent Users</span>\n' +
+    '                    <span class="value">{{campaign.mostRecentRecord.users}}</span>\n' +
+    '                </div>\n' +
+    '            </div>\n' +
     '            <div class="campaign-list-header">\n' +
     '                <span class="list-title">Data Requests</span>\n' +
     '                <div class="headers">\n' +
-    '                    <span class="imp-text">Impressions</span>\n' +
-    '                    <span class="clicks-text">Clicks</span>\n' +
-    '                    <span class="users-text">Users</span>\n' +
+    '                    <span>Total Impressions</span>\n' +
+    '                    <span>Clicks</span>\n' +
+    '                    <span>Users</span>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '            <div class="campaign-list-item-wrapper">\n' +
     '                <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">\n' +
-    '                    <span class="imp-text">{{item.impressions}}</span>\n' +
-    '                    <span class="clicks-text">{{item.clicks}}</span>\n' +
-    '                    <span class="users-text">{{item.users}}</span>\n' +
+    '                    <span>{{item.impressions}}</span>\n' +
+    '                    <span>{{item.clicks}}</span>\n' +
+    '                    <span>{{item.users}}</span>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '\n' +

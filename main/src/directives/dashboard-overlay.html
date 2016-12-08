@@ -7,20 +7,45 @@
         <div class="chart-wrapper">
             <canvas id="dashboardChart"></canvas>
         </div>
+
         <div class="campaign-list" >
+            <div class="overall-data-container">
+                <div class="headers">
+                    <span>Total Impressions</span>
+                    <span>Total Clicks</span>
+                    <span>Total CTR</span>
+                    <span class="value">{{campaign.totalImpressions}}</span>
+                    <span class="value">{{campaign.totalClicks}}</span>
+                    <span class="value">{{campaign.totalCTR}}</span>
+                    <span>Total Users</span>
+                    <span>SMA</span>
+                    <span>Iteration #</span>
+                    <span class="value">{{campaign.totalUsers}}</span>
+                    <span class="value">{{campaign.getSma()}}</span>
+                    <span class="value">{{campaign.iteration}}</span>
+                    <span>Most Recent Impressions</span>
+                    <span>Most Recent Clicks</span>
+                    <span>Most Recent CTR</span>
+                    <span class="value">{{campaign.mostRecentRecord.impressions}}</span>
+                    <span class="value">{{campaign.mostRecentRecord.clicks}}</span>
+                    <span class="value">{{campaign.mostRecentRecord.ctr}}</span>
+                    <span>Most Recent Users</span>
+                    <span class="value">{{campaign.mostRecentRecord.users}}</span>
+                </div>
+            </div>
             <div class="campaign-list-header">
                 <span class="list-title">Data Requests</span>
                 <div class="headers">
-                    <span class="imp-text">Impressions</span>
-                    <span class="clicks-text">Clicks</span>
-                    <span class="users-text">Users</span>
+                    <span>Total Impressions</span>
+                    <span>Clicks</span>
+                    <span>Users</span>
                 </div>
             </div>
             <div class="campaign-list-item-wrapper">
                 <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">
-                    <span class="imp-text">{{item.impressions}}</span>
-                    <span class="clicks-text">{{item.clicks}}</span>
-                    <span class="users-text">{{item.users}}</span>
+                    <span>{{item.impressions}}</span>
+                    <span>{{item.clicks}}</span>
+                    <span>{{item.users}}</span>
                 </div>
             </div>
 

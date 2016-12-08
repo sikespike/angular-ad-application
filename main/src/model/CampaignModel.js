@@ -13,15 +13,32 @@ function CampaignModel(data){
 function updateTotals(data) {
     this.totalImpressions += data.impressions;
     this.totalClicks += data.clicks;
-    //this.totalCTR += data.ctr;
     this.totalUsers = data.users;
-    //this.iteration++;
+    this.totalCTR = this.totalClicks/this.totalUsers;
+    this.iteration++;
 }
 
 CampaignModel.prototype.addData = function(data) {
     this.data.push(data);
     this.mostRecentRecord = data;
+    this.mostRecentRecord.ctr = data.clicks/data.users;
     updateTotals.call(data, this);
+};
+
+CampaignModel.prototype.getSma = function() {
+    var offset = 10;
+
+    var len = this.data.length < 10 ? this.data.length: this.data.length - offset;
+
+    var totalImp =0;
+    for(var x=len; x< this.data.length; x++) {
+        var item = this.data[x];
+        totalImp += item.impressions;
+    }
+
+    var sma = totalImp / offset;
+
+    return sma;
 };
 
 module.exports = CampaignModel;
