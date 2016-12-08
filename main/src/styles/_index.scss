@@ -1,4 +1,4 @@
-#choco-header {
+#ad-header {
     position: relative;
     text-align: left;
     height: 350px;
@@ -49,7 +49,7 @@
     }
 }
 
-#choco-app {
+#ad-app {
     .main-container {
         display: block;
 
@@ -335,6 +335,13 @@
             .campaign-list {
                 margin-top: 10px;
 
+                .header-text {
+                    font-size:14px;
+                    font-weight: bold;
+                    width:180px;
+                    display: inline-block;
+                }
+
                 .campaign-list-header {
                     .list-title {
                         font-weight:bold;
@@ -343,14 +350,21 @@
 
                     .headers {
                         span {
-                            font-size:14px;
-                            font-weight: bold;
+                            @extend .header-text;
                         }
                     }
                 }
-                .campaign-list-item {
-                    span {
-                        font-size: 14px;
+
+                .campaign-list-item-wrapper {
+                    height: 240px;
+                    max-height: 240px;
+                    overflow-y: scroll;
+
+                    .campaign-list-item {
+                        span {
+                            @extend .header-text;
+                            font-weight:normal;
+                        }
                     }
                 }
             }

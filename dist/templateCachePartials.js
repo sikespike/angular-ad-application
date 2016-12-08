@@ -13,7 +13,7 @@ module.run(['$templateCache', function($templateCache) {
     '        </span>\n' +
     '        <span class="dashboard-header">{{campaign.name}} Campaign</span>\n' +
     '        <div class="chart-wrapper">\n' +
-    '            <canvas id="dashboardChart" width="400" height="400"></canvas>\n' +
+    '            <canvas id="dashboardChart"></canvas>\n' +
     '        </div>\n' +
     '        <div class="campaign-list" >\n' +
     '            <div class="campaign-list-header">\n' +
@@ -24,11 +24,14 @@ module.run(['$templateCache', function($templateCache) {
     '                    <span class="users-text">Users</span>\n' +
     '                </div>\n' +
     '            </div>\n' +
-    '            <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">\n' +
-    '                <span class="imp-text">{{item.impressions}}</span>\n' +
-    '                <span class="clicks-text">{{item.clicks}}</span>\n' +
-    '                <span class="users-text">{{item.users}}</span>\n' +
+    '            <div class="campaign-list-item-wrapper">\n' +
+    '                <div class="campaign-list-item" ng-repeat="item in campaign.data track by $index">\n' +
+    '                    <span class="imp-text">{{item.impressions}}</span>\n' +
+    '                    <span class="clicks-text">{{item.clicks}}</span>\n' +
+    '                    <span class="users-text">{{item.users}}</span>\n' +
+    '                </div>\n' +
     '            </div>\n' +
+    '\n' +
     '        </div>\n' +
     '    </div>\n' +
     '</div>');
@@ -96,10 +99,10 @@ try {
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partial/views/ad-index.html',
     '<div>\n' +
-    '    <header id="choco-header" class="main-header">\n' +
+    '    <header id="ad-header" class="main-header">\n' +
     '        <span class="header-text">Ad Campaign Management</span>\n' +
     '    </header>\n' +
-    '    <section id="choco-app">\n' +
+    '    <section id="ad-app">\n' +
     '        <div class="main-container">\n' +
     '            <div class="main-body">\n' +
     '                <option-list-container list="campaigns.data"/>\n' +
