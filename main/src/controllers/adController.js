@@ -42,14 +42,14 @@ angular.module('app')
         };
 
         $scope.$on(UiEvents.DASH_OPEN, function(event, target) {
-            var it = $scope.campaign ? $scope.campaign.iteration: 0;
+            var it = $scope.campaign ? $scope.campaign.iteration: - 1;
 
-            campaignService.getCampaign(target.id, it).then(function(data) {
+            campaignService.getCampaign(target.id, it + 1).then(function(data) {
                 campaign = getCampaign(target.id);
                 campaign.addData(data);
                 $scope.campaign = campaign;
                 toggleDashboard();
-                $scope.startTimer(target.id, $scope.campaign.iteration);
+                $scope.startTimer(target.id, it + 2);
             });
         });
 

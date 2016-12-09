@@ -11,18 +11,19 @@ function CampaignModel(data){
 }
 
 function updateTotals(data) {
-    this.totalImpressions += data.impressions;
-    this.totalClicks += data.clicks;
-    this.totalUsers = data.users;
-    this.totalCTR = this.totalClicks/this.totalUsers;
-    this.iteration++;
+
 }
 
 CampaignModel.prototype.addData = function(data) {
     this.data.push(data);
     this.mostRecentRecord = data;
     this.mostRecentRecord.ctr = data.clicks/data.users;
-    updateTotals.call(data, this);
+
+    this.totalImpressions += data.impressions;
+    this.totalClicks += data.clicks;
+    this.totalUsers = data.users;
+    this.totalCTR = this.totalClicks/this.totalUsers;
+    this.iteration ++;
 };
 
 CampaignModel.prototype.getSma = function() {

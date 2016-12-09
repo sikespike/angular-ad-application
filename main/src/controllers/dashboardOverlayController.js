@@ -16,7 +16,9 @@ angular.module("app")
             $scope.startTimer = function (id,it) {
                 $scope.dashTimer = $interval(function () {
                     campaignService.getCampaign(id, it).then(function(data){
-                        $scope.campaign.addData(data);
+                        if($scope.campaign.impressions != data.impressions) {
+                            $scope.campaign.addData(data);
+                        }
                         it++;
                     });
                 }, 5000);

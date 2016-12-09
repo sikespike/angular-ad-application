@@ -30,22 +30,6 @@
             margin: 6px 0;
             transition: 0.4s;
         }
-
-        &.change {
-            .bar1 {
-                -webkit-transform: rotate(-46deg)translate(-9px, 6px) ;
-                transform: rotate(-46deg)translate(-9px, 6px) ;
-            }
-
-            .bar2 {
-                opacity: 0;
-            }
-
-            .bar3 {
-                -webkit-transform: rotate(46deg) translate(-9px, -7px) ;
-                transform: rotate(46deg) translate(-9px, -7px);
-            }
-        }
     }
 }
 
