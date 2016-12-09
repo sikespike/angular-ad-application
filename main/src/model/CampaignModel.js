@@ -22,7 +22,7 @@ CampaignModel.prototype.addData = function(data) {
     this.totalImpressions += data.impressions;
     this.totalClicks += data.clicks;
     this.totalUsers = data.users;
-    this.totalCTR = this.totalClicks/this.totalUsers;
+    this.totalCTR += data.ctr;
     this.iteration ++;
 };
 

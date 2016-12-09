@@ -95,7 +95,7 @@ gulp.task('build-js', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles", "build-js","copyChartJs"], function() {
+gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles", "build-js","deleteChartJs","copyChartJs"], function() {
     return gulp.src('index.html')
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
@@ -116,6 +116,10 @@ gulp.task("clean-images", function(){
 gulp.task("copyImages", ["clean-images"] ,function(){
     return gulp.src("./images/*.*")
         .pipe(gulp.dest("./dist/"));
+});
+
+gulp.task("deleteChartJs", function(){
+    return del(["./dist/Chart.min.js"]);
 });
 
 //Copy static files from html folder to build folder
