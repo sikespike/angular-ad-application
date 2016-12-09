@@ -17,7 +17,7 @@ function updateTotals(data) {
 CampaignModel.prototype.addData = function(data) {
     this.data.push(data);
     this.mostRecentRecord = data;
-    this.mostRecentRecord.ctr = data.clicks/data.users;
+    //this.mostRecentRecord.ctr = data.clicks/data.users;
 
     this.totalImpressions += data.impressions;
     this.totalClicks += data.clicks;

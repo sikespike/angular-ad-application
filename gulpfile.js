@@ -95,7 +95,7 @@ gulp.task('build-js', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles", "build-js","deleteChartJs","copyChartJs"], function() {
+gulp.task('build', ["clean",'sass','build-template-cache', 'jshint', "copyStaticFiles", "build-js","deleteChartJs"], function() {
     return gulp.src('index.html')
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));

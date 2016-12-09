@@ -13,7 +13,7 @@ module.run(['$templateCache', function($templateCache) {
     '        </span>\n' +
     '        <span class="dashboard-header">{{campaign.name}} Campaign</span>\n' +
     '        <div class="chart-wrapper">\n' +
-    '            <canvas id="dashboardChart"></canvas>\n' +
+    '            <canvas id="dashboardChart" data="chartData"></canvas>\n' +
     '        </div>\n' +
     '\n' +
     '        <div class="campaign-list" >\n' +
@@ -106,7 +106,7 @@ module.run(['$templateCache', function($templateCache) {
     '                    <div class="colour-container {{item.name.toLowerCase()}}"></div>\n' +
     '                </div>\n' +
     '                <div class="item-info-container">\n' +
-    '                    <span class="type-name">{{item.name}}</span>\n' +
+    '                    <span class="type-name">{{item.name}}:{{item.id}}</span>\n' +
     '                </div>\n' +
     '            </li>\n' +
     '        </ul>\n' +
