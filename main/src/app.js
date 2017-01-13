@@ -1,10 +1,10 @@
 angular = require('angular');
 require('angular-route');
-require('../../dist/templateCachePartials');
+require('templateCachePartials.js');
 
 angular.module('app', ['ngRoute','adPartials'])
 
-.config(function ($routeProvider,$httpProvider) {
+    .config(function ($routeProvider,$httpProvider) {
         $routeProvider.when('/', {
             templateUrl: '/partial/views/ad-index.html',
             controller: 'AdController',
